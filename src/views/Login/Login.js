@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
+import * as Actions from '../../Redux/actions'
 
 class Login extends Component {
 	constructor(props) {
@@ -20,7 +23,8 @@ class Login extends Component {
 		};
 
 		axios.post('/api/login', user).then((results) => {
-			console.log(results);
+            console.log(results);
+            this.props.getUser(results.data[0])
 			this.props.history.push('./dashboard');
 		});
 	}
@@ -40,11 +44,13 @@ class Login extends Component {
 					onChange={(e) => this.handleChange(e, 'password')}
 				/>
 				<div>
-					<button onClick= {()=> this.login()}>Login</button>
-					<button>Sign up</button>
+					<button onClick={() => this.login()}>Login</button>
+					<Link to="/register">
+						<button>Sign up</button>
+					</Link>
 				</div>
 			</div>
 		);
 	}
 }
-export default Login;
+export default connect(state => state, Actions)(Login);

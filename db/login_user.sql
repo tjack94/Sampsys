@@ -1,1 +1,1 @@
-SELECT * from users WHERE username = $1 and password = $2
+SELECT username, email, first_name, last_name  from users WHERE username = $1 and password = $2
