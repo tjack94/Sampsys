@@ -9,3 +9,9 @@ export const logUserOut = () => {
         type: "LOG_OUT",
     }
 }
+export const setQuestionType = (questionType) => {
+	return {
+		type: "SET_TYPE",
+		payload: questionType
+	}
+}

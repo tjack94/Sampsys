@@ -27,6 +27,11 @@ massive(process.env.CONNECTION_STRING)
 app.post('/api/login', controller.loginUser)
 app.post('/api/create-user', controller.createUser)
 app.get('/api/auth/me', controller.authCheck, controller.userInfo)
+app.get('/api/get-user-surveys', controller.getUserSurveys)
+app.get('/api/collective-responses/:surveyid', controller.getCollectiveResponses)
+app.get('/api/individual-response/:surveyid/:userid', controller.getIndividualResponse)
+app.get(`/api/get-surveyid/:surveyid`, controller.getSurveyId)
+app.post('/api/create-survey', controller.createSurvey)
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
 const port = 3002

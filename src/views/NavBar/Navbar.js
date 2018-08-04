@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import * as Actions from '../../Redux/actions'
 
@@ -22,7 +23,7 @@ class NavBar extends Component{
     logOut(){
         axios.post('/api/auth/logout').then(() => {
             this.props.logUserOut()
-            this.props.history.push('./')
+            
         })
     }
     render(){
@@ -31,8 +32,13 @@ class NavBar extends Component{
         }else{
         return(
             <div>
-                NavBar
-                <button onClick={()=> this.logOut()}>logout</button>
+               <div>
+                   <Link to='/dashboard'><button>Home</button></Link>
+               </div>
+               <div>
+                   <Link to= '/create-survey/step1'> <button>Create New Survey</button> </Link>
+               </div>
+                <Link to= '/'><button onClick={()=> this.logOut()}>logout</button></Link>
             </div>
         )
     }}

@@ -42,5 +42,72 @@ module.exports={
         }
             
         
+    },
+    getUserSurveys: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const user_id = req.session.userid
+
+        dbInstance.get_user_surveys([user_id])
+        .then(surveys => {
+            res.status(200).send(surveys)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getCollectiveResponses: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const {surveyid} = req.params 
+
+        dbInstance.get_collective_responses([surveyid])
+        .then(responses => {
+            res.status(200).send(responses)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getIndividualResponse: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const {surveyid, userid} = req.params 
+
+        dbInstance.get_individual_responses([surveyid, userid])
+        .then(responses => {
+            res.status(200).send(responses)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getSurveyId: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const {surveyid} = req.params 
+
+        dbInstance.get_survey_id([surveyid])
+        .then(id => {
+            res.status(200).send(id)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    createSurvey: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const {name} = req.body 
+        const user_id = req.session.userid
+
+        dbInstance.surveys.insert({survey_name: name, user_id: user_id, response_count: 0 })
+        .then( survey => {
+            res.status(200).send(survey)
+        }
+        )
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
     }
 }

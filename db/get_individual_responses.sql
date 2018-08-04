@@ -1,0 +1,1 @@
+SELECT q.question, r.response from responses r INNER JOIN  questions q on r.question_id = q.question_id WHERE survey_id = $1 and consumer_id = $2 
