@@ -1,0 +1,1 @@
+SELECT * from surveys WHERE survey_id = $1

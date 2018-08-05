@@ -102,6 +102,21 @@ module.exports={
 
         dbInstance.surveys.insert({survey_name: name, user_id: user_id, response_count: 0 })
         .then( survey => {
+            {req.session.surveyid = survey.survey_id}
+            res.status(200).send(survey)
+        }
+        )
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getSurveyInfo: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const survey_id = req.session.surveyid
+
+        dbInstance.get_survey_info([survey_id])
+        .then( survey => {
             res.status(200).send(survey)
         }
         )
@@ -110,4 +125,5 @@ module.exports={
             console.log(err);
          })
     }
+    
 }

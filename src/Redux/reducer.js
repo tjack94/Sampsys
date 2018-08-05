@@ -18,6 +18,17 @@ const userInitialState = {
         default: return state
     }
 };
+function saveSurveyToState(state={ surveyName: null }, action){
+    switch(action.type){
+
+        case "SAVE_SURVEY":
+        return Object.assign({}, state, {surveyName: action.payload.survey_name})
+
+        default: return state
+    }
+} 
+
+
 function questionInfo(state = {}, action){
     switch (action.type) {
         case "SET_TYPE":
@@ -26,4 +37,4 @@ function questionInfo(state = {}, action){
     }
 }
 
-export default combineReducers({userInfo, questionInfo })
+export default combineReducers({userInfo, saveSurveyToState, questionInfo })

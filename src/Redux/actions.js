@@ -15,3 +15,9 @@ export const setQuestionType = (questionType) => {
 		payload: questionType
 	}
 }
+export const getSurveyName = (name) =>{
+	return {
+		type: "SAVE_SURVEY",
+		payload: name
+	}
+}

@@ -32,6 +32,7 @@ app.get('/api/collective-responses/:surveyid', controller.getCollectiveResponses
 app.get('/api/individual-response/:surveyid/:userid', controller.getIndividualResponse)
 app.get(`/api/get-surveyid/:surveyid`, controller.getSurveyId)
 app.post('/api/create-survey', controller.createSurvey)
+app.get('/api/get-survey-info', controller.getSurveyInfo)
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
 const port = 3002
