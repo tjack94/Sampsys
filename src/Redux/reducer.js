@@ -22,7 +22,7 @@ function saveSurveyToState(state={ surveyName: null }, action){
     switch(action.type){
 
         case "SAVE_SURVEY":
-        return Object.assign({}, state, {surveyName: action.payload.survey_name})
+        return Object.assign({}, state, {surveyName: action.payload})
 
         default: return state
     }
@@ -33,8 +33,17 @@ function questionInfo(state = {}, action){
     switch (action.type) {
         case "SET_TYPE":
         return Object.assign({}, state, {questionType: action.payload})  
+        
+        default: return state
+    }
+}
+function surveyQuestions(state = {}, action){
+    switch(action.type){
+        case "GET_QUESTIONS":
+        return Object.assign({}, state, {questions: action.payload})
+
         default: return state
     }
 }
 
-export default combineReducers({userInfo, saveSurveyToState, questionInfo })
+export default combineReducers({userInfo, saveSurveyToState, questionInfo, surveyQuestions })

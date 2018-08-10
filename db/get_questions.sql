@@ -1,0 +1,1 @@
+SELECT * FROM questions WHERE survey_id = $1

@@ -124,6 +124,95 @@ module.exports={
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
          })
+    },
+    getQuestions: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const survey_id = req.session.surveyid
+
+        dbInstance.get_questions([survey_id])
+        .then(questions => {
+            res.status(200).send(questions)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    addQuestionMC: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const survey_id = req.session.surveyid
+        const {question, questionType, possibleResponses} = req.body
+
+        dbInstance.add_question([survey_id, questionType, question, possibleResponses])
+        .then(()=>{
+            res.sendStatus(200)
+        }).catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    addQuestionSimple: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const survey_id = req.session.surveyid
+        const {question, questionType } = req.body
+        const possibleResponses = null
+
+        dbInstance.add_question([survey_id, questionType, question, possibleResponses])
+        .then(()=>{
+            res.sendStatus(200)
+        }).catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getSurveyNumber: (req, res, next) => {
+        const survey_id = req.session.surveyid
+
+        res.status(200).send([survey_id])
+    },
+    getIndividualSurvey: (req, res, next) =>{
+        const {surveyid} = req.params
+        const dbInstance = req.app.get('db')
+
+        dbInstance.get_survey_info([surveyid])
+        .then( survey => {
+            {req.session.surveyid = survey.survey_id}
+            res.status(200).send(survey)
+        }
+        )
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    createConsumer: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+
+        dbInstance.consumers.insert({placeholder: ''})
+        .then( consumer => {
+            {req.session.consumerid = consumer.consumer_id}
+            res.sendStatus(200)
+        }
+        )
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+        
+    },
+    getSurveyQuestionsParam: (req, res, next) => {
+        const {surveyid} = req.params
+        const dbInstance = req.app.get('db')
+
+        dbInstance.get_questions([surveyid])
+        .then(questions => {
+            res.status(200).send(questions)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         }) 
+
     }
     
 }

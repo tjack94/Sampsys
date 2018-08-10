@@ -18,14 +18,16 @@ class StepOne extends Component {
         const newSurvey= {
             name: this.state.surveyName
         }
-        axios.post('/api/create-survey', newSurvey).then()
+        axios.post('/api/create-survey', newSurvey).then(()=>{
+			this.props.history.push('/create-survey/step2')
+		})
     }
 	render() {
 		return (
 			<div>
 				<h3> Survey Name: </h3>
 				<input type="text" value={this.state.surveyName} onChange={(e) => this.handleChange(e.target.value)}/>
-                <Link to= '/create-survey/step2'><button onClick = {()=> this.createSurvey()} >Next</button> </Link>
+                <button onClick = {()=> this.createSurvey()} >Next</button>
 			</div>
 		);
 	}
