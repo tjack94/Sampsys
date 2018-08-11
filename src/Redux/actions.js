@@ -27,3 +27,9 @@ export const getSurveyQuestions = (questions) =>{
 		payload: questions
 	}
 }
+export const nextQuestion = (index) => {
+	return {
+		type: "NEXT_QUESTION",
+		payload: index
+	}
+}

@@ -16,7 +16,7 @@ export default function Routes() {
 			<Route path = '/results/:surveyid/:userid' component = {Individual} />
             <Route path = '/results/:surveyid' component = {Collective} />
 			<Route path = '/register' component = {Signup} />
-			<Route path = '/take-survey/:surveyid/:questionid' component = {Survey} />
+			<Route path = '/take-survey/:surveyid/' component = {Survey} />
 			<Route path = '/start-survey/:surveyid' component = {StartSurvey}/>
 			<Route path = '/create-survey' component = {Wizard} />
 			<Route path = '/' component = {Login} />

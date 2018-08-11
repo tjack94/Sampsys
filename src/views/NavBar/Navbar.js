@@ -11,7 +11,7 @@ class NavBar extends Component {
 			location === '/' ||
 			location === '/register' ||
 			this.props.location.pathname.includes('/take-survey/') ||
-			this.props.location.pathname.includes( "/start-survey/")
+			this.props.location.pathname.includes('/start-survey/')
 		) {
 		} else {
 			axios
@@ -20,8 +20,7 @@ class NavBar extends Component {
 					this.props.getUser(response.data[0]);
 				})
 				.catch((error) => this.props.history.push('/'));
-        }
-        
+		}
 	}
 	logOut() {
 		axios.post('/api/auth/logout').then(() => {
@@ -29,7 +28,12 @@ class NavBar extends Component {
 		});
 	}
 	render() {
-		if (this.props.location.pathname === '/' || this.props.location.pathname === '/register' || this.props.location.pathname.includes( "/start-survey/")) {
+		if (
+			this.props.location.pathname === '/' ||
+			this.props.location.pathname === '/register' ||
+			this.props.location.pathname.includes('/take-survey/') ||
+			this.props.location.pathname.includes('/start-survey/')
+		) {
 			return null;
 		} else {
 			return (

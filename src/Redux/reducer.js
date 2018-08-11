@@ -33,14 +33,17 @@ function questionInfo(state = {}, action){
     switch (action.type) {
         case "SET_TYPE":
         return Object.assign({}, state, {questionType: action.payload})  
-        
+
         default: return state
     }
 }
 function surveyQuestions(state = {}, action){
     switch(action.type){
         case "GET_QUESTIONS":
-        return Object.assign({}, state, {questions: action.payload})
+        return Object.assign({}, state, {questions: action.payload, questionIndex: 0})
+
+        case "NEXT_QUESTION":
+        return Object.assign({}, state, {questionIndex: action.payload})
 
         default: return state
     }

@@ -213,6 +213,38 @@ module.exports={
             console.log(err);
          }) 
 
+    },
+    getIndividualQuestion: (req, res, next) => {
+        const {questionid} = req.params
+        const dbInstance = req.app.get('db')
+
+        dbInstance.get_individual_question([questionid])
+        .then( question => {
+            res.status(200).send(question)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         }) 
+    },
+    addResponse: (req, res, next) => {
+        const {questionid} = req.params
+        const dbInstance = req.app.get('db')
+        const {response} = req.body
+        const consumer_id = req.session.consumerid
+
+        dbInstance.add_response([questionid, response, consumer_id])
+        .then(()=>{
+            res.sendStatus(200)
+        }).catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    getConumer: (req, res, next) => {
+        const consumer_id = req.session.consumerid
+
+        res.status(200).send({consumer_id})
     }
     
 }

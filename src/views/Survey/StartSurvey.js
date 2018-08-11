@@ -7,7 +7,8 @@ class StartSurvey extends Component{
     constructor(props){
         super(props)
             this.state = {
-                survey: {}
+                survey: {},
+                questions: []
             }
         }
       componentWillMount(){
@@ -19,18 +20,20 @@ class StartSurvey extends Component{
             const questionIds = []
 
               response.data.map(question => questionIds.push(question.question_id))
-            this.props.getSurveyQuestions(questionIds)
+            this.setState( { questions: questionIds } )
           })
       }  
     beginSurvey(){
         axios.post('/api/create-consumerid').then(()=>{
-            this.props.history.push(`/take-survey/${this.state.survey.survey_id}/${this.props.surveyQuestions.questions[0]}`)
+            this.props.history.push(`/take-survey/${this.state.survey.survey_id}/`)
         })
     }
     render(){
         return(
+            
             <div>
             <h1>{this.state.survey.survey_name}</h1>
+            <h4>{this.state.questions.length} Questions</h4>
             <button onClick={()=> this.beginSurvey()}>Start</button>
             </div>
         )
