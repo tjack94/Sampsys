@@ -8,6 +8,7 @@ import Signup from './views/Signup/Signup';
 import Survey from './views/Survey/Survey';
 import Wizard from './views/Wizard/Wizard';
 import StartSurvey from './views/Survey/StartSurvey'
+import ThankYou from './views/Survey/ThankYou'
 
 export default function Routes() {
 	return (
@@ -16,7 +17,8 @@ export default function Routes() {
 			<Route path = '/results/:surveyid/:userid' component = {Individual} />
             <Route path = '/results/:surveyid' component = {Collective} />
 			<Route path = '/register' component = {Signup} />
-			<Route path = '/take-survey/:surveyid/' component = {Survey} />
+			<Route path = '/take-survey/:surveyid' component = {Survey} />
+			<Route path = '/thankyou' component = {ThankYou} />
 			<Route path = '/start-survey/:surveyid' component = {StartSurvey}/>
 			<Route path = '/create-survey' component = {Wizard} />
 			<Route path = '/' component = {Login} />

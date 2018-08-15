@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/actions';
+import './Navbar.css'
+import SampsysLogo from '../Login/SampsysLogo.png'
+import LogOut from '../../LogOut.png';
+
 
 class NavBar extends Component {
 	componentDidMount() {
@@ -11,7 +15,8 @@ class NavBar extends Component {
 			location === '/' ||
 			location === '/register' ||
 			this.props.location.pathname.includes('/take-survey/') ||
-			this.props.location.pathname.includes('/start-survey/')
+            this.props.location.pathname.includes('/start-survey/') ||
+            this.props.location.pathname.includes('/thankyou')
 		) {
 		} else {
 			axios
@@ -32,26 +37,23 @@ class NavBar extends Component {
 			this.props.location.pathname === '/' ||
 			this.props.location.pathname === '/register' ||
 			this.props.location.pathname.includes('/take-survey/') ||
-			this.props.location.pathname.includes('/start-survey/')
+            this.props.location.pathname.includes('/start-survey/') ||
+            this.props.location.pathname.includes('/thankyou')
 		) {
 			return null;
 		} else {
 			return (
-				<div>
+				<div className='navbar'>
 					<div>
 						<Link to="/dashboard">
-							<button>Home</button>
+							<img src={SampsysLogo} alt="logo" className='logo'/>
 						</Link>
 					</div>
-					<div>
-						<Link to="/create-survey/step1">
-							{' '}
-							<button>Create New Survey</button>{' '}
-						</Link>
-					</div>
+					
 					<Link to="/">
-						<button onClick={() => this.logOut()}>logout</button>
+					<img src={LogOut} alt="logout" className = 'logout-button' onClick={() => this.logOut()}/>
 					</Link>
+					
 				</div>
 			);
 		}

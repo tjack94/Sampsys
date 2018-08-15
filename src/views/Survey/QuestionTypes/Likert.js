@@ -2,56 +2,58 @@ import React from 'react'
 
 export default function Likert(props){
     return(
-        <table name={this.state.currentQuestion.questionid +"likert"}>
+        <table width= '400' >
+            <tbody>
 						<tr>
-							<td>Strongly Disagree</td>
+							<td>Strongly <br/> Disagree</td>
 							<td>Disagree</td>
 							<td>Neutral</td>
 							<td>Agree</td>
-							<td>Strongly Agree</td>
+							<td>Strongly <br/> Agree</td>
 						</tr>
 						<tr>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value="Strongly Disagree"
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value="Disagree"
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value="Neutral"
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value="Agree"
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value="Strongly Agree"
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 						</tr>
+                        </tbody>
 					</table>
     )
 }

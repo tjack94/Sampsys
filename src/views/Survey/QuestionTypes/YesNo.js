@@ -6,17 +6,17 @@ export default function YesNo(props){
 						<div>
 							Yes<input
 								type="radio"
-								name="question_response"
+								name={props.currentQuestion.question_id + "response"}
 								value={'yes'}
-								onChange={(e) => this.handleChange(e.target.value)}
+								onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 							/>
 						</div>
 						<div>
 							No<input
 								type="radio"
-								name="question_response"
+								name={props.currentQuestion.question_id + "response"}
 								value={'no'}
-								onChange={(e) => this.handleChange(e.target.value)}
+								onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 							/>
 						</div>
 					</div>

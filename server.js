@@ -41,9 +41,9 @@ app.get('/api/start-survey/:surveyid', controller.getIndividualSurvey)
 app.post('/api/create-consumerid', controller.createConsumer)
 app.get(`/api/get-survey-questions/:surveyid`, controller.getSurveyQuestionsParam)
 app.get('/api/get-individual-question/:questionid', controller.getIndividualQuestion)
-app.post('/api/add-response/:questionid', controller.addResponse)
+app.post('/api/add-responses/:surveyid', controller.addResponses)
 app.get('/api/get-consumerid', controller.getConumer)
-app.get('/api/survey-ready', (req, res, next)=> res.sendStatus(200))
+app.delete('/api/delete-survey/:surveyid', controller.deleteSurvey)
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
 const port = 3002

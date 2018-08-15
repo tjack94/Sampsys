@@ -206,7 +206,8 @@ module.exports={
 
         dbInstance.get_questions([surveyid])
         .then(questions => {
-            res.status(200).send(questions)
+            res.status(200).send(questions);
+            
         })
         .catch((err) => {
             res.status(500).send({ errorMessage: 'Something went wrong!' });
@@ -227,15 +228,16 @@ module.exports={
             console.log(err);
          }) 
     },
-    addResponse: (req, res, next) => {
-        const {questionid} = req.params
+    addResponses: (req, res, next) => {
         const dbInstance = req.app.get('db')
-        const {response} = req.body
-        const consumer_id = req.session.consumerid
+        const {surveyid} = req.params
 
-        dbInstance.add_response([questionid, response, consumer_id])
+        dbInstance.responses.insert(req.body)
         .then(()=>{
-            res.sendStatus(200)
+            dbInstance.update_num_of_responses([surveyid])
+            .then(()=>{
+                res.sendStatus(200)
+            })
         }).catch((err) => {
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
@@ -243,8 +245,24 @@ module.exports={
     },
     getConumer: (req, res, next) => {
         const consumer_id = req.session.consumerid
+        
 
         res.status(200).send({consumer_id})
+    },
+    deleteSurvey: (req, res, next) =>{
+        const {surveyid} = req.params
+        const dbInstance = req.app.get('db')
+
+        dbInstance.delete_survey([surveyid])
+        .then(()=>{
+            dbInstance.update_num_of_responses([surveyid])
+            .then(()=>{
+                res.sendStatus(200)
+            })
+        }).catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
     }
     
 }

@@ -1,0 +1,1 @@
+DELETE FROM surveys WHERE survey_id = $1

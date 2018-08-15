@@ -6,17 +6,17 @@ export default function TrueFalse(props){
 						<div>
 							True<input
 								type="radio"
-								name="question_response"
+								name={props.currentQuestion.question_id + "response"}
 								value={'true'}
-								onChange={(e) => this.handleChange(e.target.value)}
+								onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 							/>
 						</div>
 						<div>
 							False<input
 								type="radio"
-								name={"question_response"}
+								name={props.currentQuestion.question_id + "response"}
 								value={'false'}
-								onChange={(e) => this.handleChange(e.target.value)}
+								onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 							/>
 						</div>
 					</div>

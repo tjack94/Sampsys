@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Signup.css'
 
 class Signup extends Component {
 	constructor(props) {
@@ -29,21 +30,30 @@ class Signup extends Component {
 	}
 	render() {
 		return (
-			<div>
-				Username:
-				<input type="text" value={this.state.username} onChange={(e) => this.handleChange(e, 'username')} />
-				Password:
-				<input type="password" value={this.state.password} onChange={(e) => this.handleChange(e, 'password')} />
-				Email:
-				<input type="text" value={this.state.email} onChange={(e) => this.handleChange(e, 'email')} />
+			<div className='signup'>
+				<h1>Create A New Account</h1>
+				<div className='input-container'>
 				First Name:
-				<input type="text" value={this.state.firstName} onChange={(e) => this.handleChange(e, 'firstName')} />
+				<input className='sign-up-inputs' type="text" value={this.state.firstName} onChange={(e) => this.handleChange(e, 'firstName')} />
+				
 				Last Name:
-				<input type="text" value={this.state.lastName} onChange={(e) => this.handleChange(e, 'lastName')} />
+				<input className='sign-up-inputs' type="text" value={this.state.lastName} onChange={(e) => this.handleChange(e, 'lastName')} />
+				</div>
+				<div className='input-container'>
+				Username:
+				<input className='sign-up-inputs' type="text" value={this.state.username} onChange={(e) => this.handleChange(e, 'username')} />
+				
+				Password:
+				<input className='sign-up-inputs' type="password" value={this.state.password} onChange={(e) => this.handleChange(e, 'password')} />
+				</div>
+				<div className='input-container'>
+				Email:
+				<input className='sign-up-email' type="text" value={this.state.email} onChange={(e) => this.handleChange(e, 'email')} />
+				</div>
 				<div>
-					<button onClick={()=>this.createUser()}>Sign-up</button>
+					<button className='login-button'  onClick={()=>this.createUser()}>Sign-up</button>
 					<Link to="/">
-						<button>Cancel</button>
+						<button className='login-button' >Cancel</button>
 					</Link>
 				</div>
 			</div>

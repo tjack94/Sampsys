@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function Rating(props){
     return(
-        <table name={this.state.currentQuestion.questionid+"rating"}>
+        <table >
+            <tbody>
 						<tr>
 							<td>1</td>
 							<td>2</td>
@@ -14,44 +15,45 @@ export default function Rating(props){
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value={1}
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value={2}
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value={3}
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value={4}
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 							<td>
 								<input
 									type="radio"
-									name="question_response"
+									name={props.currentQuestion.question_id + "response"}
 									value={5}
-									onChange={(e) => this.handleChange(e.target.value)}
+									onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 								/>
 							</td>
 						</tr>
+                        </tbody>
 					</table>
     )
 }
