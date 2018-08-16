@@ -1,22 +1,38 @@
-.dashboard{
-    background-color: white;
-    width: 80%;
-    margin: 0 10%;
-    padding: 20px;
-    min-height: 83vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(71, 71, 71, 0.507) 0px 4px 4px 4px;
+#dashboard{
+    width: 80vw;
+    margin-top: 50px;
+    margin-left: 10vh
     
 }
 .survey-list{
     margin: 5px;
-    border-radius: 5px;
+    height: 120px;
+    width: 160px;
+    border-radius: 10px;
     padding: 5px;
-    font-size: 18px
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: solid #415989;
+    box-shadow: rgba(71, 71, 71, 0.507) 0px 4px 4px 4px;
+    -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+
     
+}.survey-list-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow: auto;
+    justify-content: center;
+    width: 90%;
+    margin: 10px;
+    padding: 10px 0;
+    
+
 }
 .survey-list:hover{
     box-shadow: rgba(71, 71, 71, 0.507) 0px 4px 4px 4px;
@@ -29,7 +45,9 @@ a:hover{
 
 .link-to-survey{
 text-decoration: none;
-color: #415989;;
+color: #415989;
+display: flex;
+flex-direction: column;
 }
 .column-headings{
     text-decoration: underline;
@@ -47,7 +65,8 @@ color: #415989;;
 	font-family:Arial;
 	font-size:10px;
 	font-weight:bold;
-	padding:5px ;
+    padding:5px ;
+    margin: 5px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #7a2a1d;
 }
@@ -57,4 +76,13 @@ color: #415989;;
 .delete-button:active {
 	position:relative;
 	top:1px;
+}
+#delete-survey{
+    display: none;
+}
+.survey-list:hover #delete-survey{
+    display: block;
+}
+.no-surveys{
+    grid-column: 2/5
 }

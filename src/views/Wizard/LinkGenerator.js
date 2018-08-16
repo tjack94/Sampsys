@@ -6,13 +6,13 @@ class LinkGenerator extends Component{
     constructor(props){
         super(props)
         this.state = {
-            surveyId: null
+            surveyId: 0
         }
     }
     componentWillMount(){
-        axios.get('/api/get-surveyid').then(response =>{
+        axios.get('/api/get-survey-number').then(response =>{
             console.log(response)
-            this.setState( { surveyId: response.data.survey_id } )
+            this.setState( { surveyId: response.data[0]} )
         }
         )
     }
@@ -20,6 +20,7 @@ class LinkGenerator extends Component{
         const surveyLink = `http://localhost:3000/start-survey/${this.state.surveyId}`
         return(
             <div>
+                <h1>Survey Link</h1>
             <p>Below is a link to your survey this link may be distributed via email or posted directly on your site to allow users to take your survey.</p>
             <div>
                 <a href={surveyLink}>{surveyLink}</a>

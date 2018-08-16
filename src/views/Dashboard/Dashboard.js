@@ -25,51 +25,40 @@ class Dashboard extends Component {
 	render() {
 		const surveyList =
 			this.state.surveys.length < 1 ? (
-				<h2>You don't have any Surveys Yet</h2>
+				<h2 className="no-surveys">You don't have any Surveys Yet</h2>
 			) : (
 				this.state.surveys.map((survey, index) => {
 					return (
-						<tr className="survey-list" key={index}>
+						<div className="survey-list" key={index}>
 							<Link className="link-to-survey" to={`/results/${survey.survey_id}`}>
-								<td>{survey.survey_name} </td>
+								{survey.survey_name}
+								<span>
+									<b># of Responses:</b>
+									{survey.response_count}
+								</span>
 							</Link>
-							<td>{survey.response_count}</td>
-
 							<button
 								className="delete-button"
+								id="delete-survey"
 								onClick={() => this.deleteSurvey(survey.survey_id, index)}
 							>
 								delete
 							</button>
-						</tr>
+						</div>
 					);
 				})
 			);
 
 		return (
-			<div className="dashboard">
+			<div className="dashboard" id="dashboard">
 				<h1>My Surveys</h1>
 				<div>
 					<Link to="/create-survey/step1">
 						<button className="login-button">Create New Survey</button>
 					</Link>
+					<hr />
 				</div>
-				<table border="0">
-					<tr>
-						<td>
-							{' '}
-							<b>
-								<u>Survey Name</u>
-							</b>
-						</td>
-						<td>
-							<b>
-								Number of <br /> <u>Responses</u>
-							</b>
-						</td>
-					</tr>
-					{surveyList}
-				</table>
+				<div className="survey-list-container">{surveyList}</div>
 			</div>
 		);
 	}

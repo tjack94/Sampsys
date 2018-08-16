@@ -14,9 +14,8 @@ class StepTwo extends Component {
 	}
 	componentWillMount() {
 		axios.get('/api/get-survey-info').then((response) => {
-			console.log(response)
+			console.log(response);
 			this.props.getSurveyName(response.data[0].survey_name);
-			
 		});
 		axios.get('/api/get-survey-questions').then((response) => {
 			this.setState({ questions: response.data });
@@ -28,18 +27,35 @@ class StepTwo extends Component {
 				<p>No Questions added yet</p>
 			) : (
 				this.state.questions.map((question, index) => {
-					return <div key={index}>{question.question}</div>;
+					return (
+						<tr key={index}>
+							<td className='question-column'>
+								{index + 1}. {question.question}
+							</td>
+							<td>({question.question_type})</td>
+						</tr>
+					);
 				})
 			);
+			const showTable = this.state.questions.length < 1 ? questionsList : (
+				<table border="0">
+					<tr>
+						<td className="table-heading">Question</td>
+						<td className="table-heading">Type</td>
+					</tr>
+					{questionsList}
+				</table>
+			) 
 		return (
-			<div>
+			<div className="wizard-steps">
 				<h1>{this.props.saveSurveyToState.surveyName}</h1>
-				{questionsList}
+				{showTable}
+
 				<Link to="/create-survey/step3">
-					<button>Add Question</button>
+					<button className="login-button">Add Question</button>
 				</Link>
-				<Link to= '/create-survey/link-generator'>
-				<button>Done</button>
+				<Link to="/create-survey/link-generator">
+					<button className="next-button">Done</button>
 				</Link>
 			</div>
 		);

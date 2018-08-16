@@ -24,9 +24,9 @@ class SimpleQuestions extends Component{
     }
     render(){
         return(
-            <div>
-                <input placeholder = "Type Your Question Here" type="text" value={this.state.question} onChange={e => this.handleQuestionChange(e.target.value)} />
-                <button onClick= {()=> this.saveQuestion()}>Done</button>
+            <div className ='wizard-inputs-container'>
+                <input className='wizard-input' placeholder = "Type Your Question Here" type="text" value={this.state.question} onChange={e => this.handleQuestionChange(e.target.value)} />
+                <button className ='next-button' onClick= {()=> this.saveQuestion()}>Done</button>
             </div>
         )
     }

@@ -27,7 +27,7 @@ class Individual extends Component{
             )
         })
         return(
-            <div>
+            <div className='main-component'>
                 {responseList}
             </div>
         )

@@ -1,8 +1,11 @@
-.signup{
+.signup,
+.wizard,
+.dashboard,
+.main-component{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: whitesmoke;
+    background: rgba(240, 237, 237, 0.904);
     width: 50%;
     margin: 10vh 25%;
     border-radius: 20px;

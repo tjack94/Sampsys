@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux'
-import * as Actions from '../../Redux/actions'
-import axios from 'axios'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as Actions from '../../Redux/actions';
+import axios from 'axios';
 
 class StepOne extends Component {
 	constructor(props) {
@@ -13,23 +13,31 @@ class StepOne extends Component {
 	}
 	handleChange(string) {
 		this.setState({ surveyName: string });
-    }
-    createSurvey(){
-        const newSurvey= {
-            name: this.state.surveyName
-        }
-        axios.post('/api/create-survey', newSurvey).then(()=>{
-			this.props.history.push('/create-survey/step2')
-		})
-    }
+	}
+	createSurvey() {
+		const newSurvey = {
+			name: this.state.surveyName
+		};
+		axios.post('/api/create-survey', newSurvey).then(() => {
+			this.props.history.push('/create-survey/step2');
+		});
+	}
 	render() {
 		return (
-			<div>
+			<div className="wizard-steps">
+			<h2>Create New Survey</h2>
 				<h3> Survey Name: </h3>
-				<input type="text" value={this.state.surveyName} onChange={(e) => this.handleChange(e.target.value)}/>
-                <button onClick = {()=> this.createSurvey()} >Next</button>
+				<input
+					className="wizard-input"
+					type="text"
+					value={this.state.surveyName}
+					onChange={(e) => this.handleChange(e.target.value)}
+				/>
+				<button className="next-button" onClick={() => this.createSurvey()}>
+					Next
+				</button>
 			</div>
 		);
 	}
 }
-export default connect(state=> state, Actions)(StepOne);
+export default connect((state) => state, Actions)(StepOne);

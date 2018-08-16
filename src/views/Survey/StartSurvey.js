@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import * as Actions from '../../Redux/actions'
+import './survey.css'
+import SampsysLogo from '../Login/SampsysLogo.png'
 
 class StartSurvey extends Component{
     constructor(props){
@@ -30,11 +32,15 @@ class StartSurvey extends Component{
     }
     render(){
         return(
-            
             <div>
+                <header className='navbar'>
+                    <img src={SampsysLogo} alt="logo" className="logo"/>
+                </header>
+            <div className='main-component'>
             <h1>{this.state.survey.survey_name}</h1>
-            <h4>{this.state.questions.length} Questions</h4>
-            <button onClick={()=> this.beginSurvey()}>Start</button>
+            <h4 className='survey-length'>{this.state.questions.length} Questions</h4>
+            <button className='next-button' onClick={()=> this.beginSurvey()}>Start</button>
+            </div>
             </div>
         )
     }

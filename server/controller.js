@@ -167,7 +167,7 @@ module.exports={
     },
     getSurveyNumber: (req, res, next) => {
         const survey_id = req.session.surveyid
-
+        console.log(survey_id)
         res.status(200).send([survey_id])
     },
     getIndividualSurvey: (req, res, next) =>{

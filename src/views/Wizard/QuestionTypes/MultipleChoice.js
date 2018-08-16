@@ -37,39 +37,47 @@ class MultipleChoice extends Component {
 			question: this.state.question,
 			possibleResponses: this.state.answers
 		};
-		axios.post(`/api/add-question/multiple-choice`, newQuestion).then(()=>{
-			this.props.history.push('/create-survey/step2')
+		axios.post(`/api/add-question/multiple-choice`, newQuestion).then(() => {
+			this.props.history.push('/create-survey/step2');
 		});
 	}
 	render() {
 		const answersList = this.state.answers.map((answer, index) => {
 			return (
-				<div key={index}>
+				<div className="add-response" key={index}>
 					<input
+						className='wizard-input'
 						type="text"
 						value={this.state.answers[index]}
 						onChange={(e) => this.handleAnswerChange(e.target.value, index)}
+						placeholder='Type response here'
 					/>
-					<button onClick={() => this.deleteAnswer(index)}> X</button>
+					<button className="delete-button" onClick={() => this.deleteAnswer(index)}>
+						{' '}
+						X
+					</button>
 				</div>
 			);
 		});
 		return (
-			<div>
+			<div className='wizard-inputs-container' >
 				<input
+					className="wizard-input"
 					type="text"
 					placeholder="Type Your Question Here"
 					value={this.state.question}
 					onChange={(e) => this.handleQuestionChange(e.target.value)}
 				/>
-				<div>
 					<h3>Add Your Answers Here</h3>
-					{answersList}
-					<button onClick={() => this.addAnswer()}>Add Response</button>
-		
-						<button onClick={() => this.saveQuestionToDb()}>Done</button>
-					
-				</div>
+				
+				<div className='wizard-inputs-container'>{answersList}</div>
+				<button className="login-button" onClick={() => this.addAnswer()}>
+					Add Response
+				</button>
+
+				<button className="next-button" onClick={() => this.saveQuestionToDb()}>
+					Done
+				</button>
 			</div>
 		);
 	}
