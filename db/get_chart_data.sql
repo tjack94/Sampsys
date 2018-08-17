@@ -1,0 +1,1 @@
+SELECT response, COUNT (*) FROM responses WHERE question_id =$1 GROUP BY response 

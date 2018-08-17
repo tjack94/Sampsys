@@ -88,6 +88,8 @@ module.exports={
 
         dbInstance.get_survey_id([surveyid])
         .then(id => {
+            {console.log(id)}
+            {req.session.surveyid= id[0].survey_id}
             res.status(200).send(id)
         })
         .catch((err) => {
@@ -263,6 +265,19 @@ module.exports={
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
          })
+    },
+    getChartData: (req, res, next) => {
+        const {questionid} = req.params
+        const dbInstance = req.app.get('db')
+
+        dbInstance.get_chart_data([questionid])
+        .then((data)=>{
+            res.status(200).send(data)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         }) 
     }
     
 }

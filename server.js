@@ -43,6 +43,7 @@ app.get(`/api/get-survey-questions/:surveyid`, controller.getSurveyQuestionsPara
 app.get('/api/get-individual-question/:questionid', controller.getIndividualQuestion)
 app.post('/api/add-responses/:surveyid', controller.addResponses)
 app.get('/api/get-consumerid', controller.getConumer)
+app.get('/api/get-chart-data/:questionid', controller.getChartData)
 app.delete('/api/delete-survey/:surveyid', controller.deleteSurvey)
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
