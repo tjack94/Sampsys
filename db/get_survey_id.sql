@@ -1,1 +1,1 @@
-SELECT survey_id from surveys WHERE survey_id = $1
+SELECT survey_id, survey_name from surveys WHERE survey_id = $1

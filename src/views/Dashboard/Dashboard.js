@@ -22,6 +22,11 @@ class Dashboard extends Component {
 			this.setState({ surveys: filteredSurveys });
 		});
 	}
+	editSurvey(surveyId) {
+		axios.get(`/api/get-surveyid/${surveyId}`).then(() => {
+			this.props.history.push('/create-survey/step2');
+		});
+	}
 	render() {
 		const surveyList =
 			this.state.surveys.length < 1 ? (
@@ -37,13 +42,22 @@ class Dashboard extends Component {
 									{survey.response_count}
 								</span>
 							</Link>
-							<button
-								className="delete-button"
-								id="delete-survey"
-								onClick={() => this.deleteSurvey(survey.survey_id, index)}
-							>
-								delete
-							</button>
+							<div id="survey-controls">
+								<button
+									className="response-button"
+									id="edit-button"
+									onClick={() => this.editSurvey(survey.survey_id)}
+								>
+									Edit
+								</button>
+								<button
+									className="delete-button"
+									onClick={() => this.deleteSurvey(survey.survey_id, index)}
+								>
+									delete
+								</button>
+								
+							</div>
 						</div>
 					);
 				})

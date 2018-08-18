@@ -45,6 +45,9 @@ app.post('/api/add-responses/:surveyid', controller.addResponses)
 app.get('/api/get-consumerid', controller.getConumer)
 app.get('/api/get-chart-data/:questionid', controller.getChartData)
 app.delete('/api/delete-survey/:surveyid', controller.deleteSurvey)
+app.delete('/api/delete-question/:questionid', controller.deleteQuestion)
+app.patch('/api/update-user-info', controller.updateUserInfo)
+app.patch('/api/update-password', controller.updatePassword)
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
 const port = 3002

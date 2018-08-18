@@ -4,7 +4,7 @@ module.exports={
         const dbInstance = req.app.get('db')
 
         dbInstance.login_user([username, password])
-        .then(user=> {{req.session.userid= user[0].id}{console.log(req.session.userid)}res.status(200).send(user)})
+        .then(user=> {{req.session.userid= user[0].id}res.status(200).send(user)})
         .catch((err) => {
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
@@ -278,6 +278,47 @@ module.exports={
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
          }) 
+    },
+    deleteQuestion: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const {questionid} = req.params
+
+        dbInstance.delete_question([questionid])
+        .then(()=>{
+            res.sendStatus(200)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    updateUserInfo: (req, res, next)=> {
+        const dbInstance = req.app.get('db')
+        const {username, email, firstName, lastName} = req.body
+        const userId = req.session.userid
+
+        dbInstance.update_user_info([username, email, firstName, lastName, userId])
+        .then(()=>{
+            res.sendStatus(200)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
+    },
+    updatePassword: (req, res, next) =>{
+        const dbInstance = req.app.get('db')
+        const userId = req.session.userid
+        const {password} = req.body
+
+        dbInstance.update_password([password, userId])
+        .then(()=>{
+            res.sendStatus(200)
+        })
+        .catch((err) => {
+            res.status(500).send({ errorMessage: 'Something went wrong!' });
+            console.log(err);
+         })
     }
     
 }

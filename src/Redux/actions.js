@@ -21,15 +21,4 @@ export const getSurveyName = (name) =>{
 		payload: name
 	}
 }
-export const getSurveyQuestions = (questions) =>{
-	return {
-		type: "GET_QUESTIONS",
-		payload: questions
-	}
-}
-export const nextQuestion = (index) => {
-	return {
-		type: "NEXT_QUESTION",
-		payload: index
-	}
-}
+

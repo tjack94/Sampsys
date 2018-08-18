@@ -1,0 +1,1 @@
+Update users set username = $1, email = $2, first_name= $3, last_name = $4 WHERE id = $5

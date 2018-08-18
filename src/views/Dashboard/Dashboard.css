@@ -77,11 +77,15 @@ flex-direction: column;
 	position:relative;
 	top:1px;
 }
-#delete-survey{
+#survey-controls{
     display: none;
 }
-.survey-list:hover #delete-survey{
+.survey-list:hover #survey-controls{
     display: block;
+}
+#edit-button{
+    font-size: 12px;
+    padding: 5px 10px;
 }
 .no-surveys{
     grid-column: 2/5

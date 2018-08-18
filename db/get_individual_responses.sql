@@ -1,1 +1,1 @@
-SELECT q.question, q.question_type, r.response from responses r INNER JOIN  questions q on r.question_id = q.question_id WHERE survey_id = $1 and consumer_id = $2 
+SELECT q.question, q.question_type, q.possible_responses, q.question_id, r.response from responses r INNER JOIN  questions q on r.question_id = q.question_id WHERE survey_id = $1 and consumer_id = $2 

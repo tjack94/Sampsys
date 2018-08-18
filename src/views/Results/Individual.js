@@ -1,34 +1,35 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import ResultsMap from './ResultsMap'
+import { promises } from 'fs';
 
 class Individual extends Component{
     constructor(props){
         super(props)
         this.state = {
-            responses: []
+            responses: [],
+            survey: {}
+            
         }
     }
     componentWillMount(){
-        axios.get(`/api/individual-response/${this.props.match.params.surveyid}/${this.props.match.params.userid}`)
-        .then(results => {
-            this.setState( { responses: results.data } )
-        })
-    }
+       const promises = []
+
+        promises.push(axios.get(`/api/individual-response/${this.props.match.params.surveyid}/${this.props.match.params.userid}`).then(({ data })=> data))
+        promises.push(axios.get('/api/get-survey-info').then( ({ data }) => data ))
+
+        return Promise.all(promises)
+        .then(([responses, survey])=>{
+            this.setState( { responses, survey } )       
+    })
+}
+    
     render(){
-        const responseList = this.state.responses.map((response, index)=>{
-            return(
-                <div key = {index}>
-                    <b>
-                        {response.question} 
-                    </b> 
-                    <br/>
-                     {response.response}
-                </div>
-            )
-        })
+        const surveyName =this.state.responses.length < 1 ? '...loading' : <h1>{this.state.survey[0].survey_name}</h1>
         return(
             <div className='main-component'>
-                {responseList}
+            {surveyName}
+                <ResultsMap questions={this.state.responses}/>
             </div>
         )
     }

@@ -9,7 +9,7 @@ class Collective extends Component {
 		super(props);
 		this.state = {
 			responses: [],
-			surveyId: '',
+			survey: {},
 			questions: [],
 			showIndividualResponses: false
 		};
@@ -26,9 +26,9 @@ class Collective extends Component {
 		);
 
 		return Promise.all(promises).then(([ responses, survey_id, questions ]) => {
-			const surveyId = survey_id[0];
+			const survey = survey_id[0];
 
-			this.setState({ responses, surveyId, questions });
+			this.setState({ responses, survey, questions });
 		});
 	}
 	render() {
@@ -39,7 +39,7 @@ class Collective extends Component {
 				this.state.responses.map((response, index) => {
 					const surveyId = this.props.match.surveyid;
 					return (
-						<Link key={index} to={`/results/${this.state.surveyId.survey_id}/${response.consumer_id}`}>
+						<Link key={index} to={`/results/${this.state.survey.survey_id}/${response.consumer_id}`}>
 							<button className="response-button">Response {index + 1}</button>
 						</Link>
 					);
@@ -58,8 +58,11 @@ class Collective extends Component {
 				See Individual Responses
 			</button>
 		);
+		const surveyName =
+			this.state.survey.survey_name ?  <h1>{this.state.survey.survey_name}</h1> : '...loading';
 		return (
 			<div className="main-component" id="collective-results">
+				{surveyName}
 				<Link to="/create-survey/link-generator">
 					<button className="login-button">Get Survey Link</button>
 				</Link>

@@ -13,3 +13,24 @@
     width: 50px;
     margin-right: 20px
 }
+.menu-container{
+    display: flex
+}
+.logout-menu{
+    margin: 10px;
+    
+}
+.menu-links{
+    text-decoration: none;
+    color: #415989;
+}
+.menu-items{
+    padding: 5px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px black
+    
+}
+.menu-items:hover{
+    background-color: white
+}

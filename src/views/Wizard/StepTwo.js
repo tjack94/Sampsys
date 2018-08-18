@@ -14,12 +14,16 @@ class StepTwo extends Component {
 	}
 	componentWillMount() {
 		axios.get('/api/get-survey-info').then((response) => {
-			console.log(response);
 			this.props.getSurveyName(response.data[0].survey_name);
 		});
 		axios.get('/api/get-survey-questions').then((response) => {
 			this.setState({ questions: response.data });
 		});
+	}
+	deleteQuestion(questionId, questionIndex) {
+		const updatedQuestions = this.state.questions.filter((question, index) => index != questionIndex)
+		axios.delete('/api/delete-question/' + questionId)
+		.then(()=> {this.setState( { questions: updatedQuestions } )})
 	}
 	render() {
 		const questionsList =
@@ -29,23 +33,36 @@ class StepTwo extends Component {
 				this.state.questions.map((question, index) => {
 					return (
 						<tr key={index}>
-							<td className='question-column'>
+							<td className="question-column">
 								{index + 1}. {question.question}
 							</td>
-							<td>({question.question_type})</td>
+							<td>({question.question_type}) </td>
+							<td>
+								<button
+									onClick={() => this.deleteQuestion(question.question_id, index)}
+									className="delete-button"
+								>
+									X
+								</button>
+							</td>
 						</tr>
 					);
 				})
 			);
-			const showTable = this.state.questions.length < 1 ? questionsList : (
+		const showTable =
+			this.state.questions.length < 1 ? (
+				questionsList
+			) : (
 				<table border="0">
+				<tbody>
 					<tr>
 						<td className="table-heading">Question</td>
 						<td className="table-heading">Type</td>
 					</tr>
 					{questionsList}
+					</tbody>
 				</table>
-			) 
+			);
 		return (
 			<div className="wizard-steps">
 				<h1>{this.props.saveSurveyToState.surveyName}</h1>

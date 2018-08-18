@@ -30,7 +30,7 @@ class QuestionChart extends Component{
             data.map((response)=>{
                 chartLabels.push(response.response) 
                 dataPoints.push(response.count)
-                backgroundColor.push('rgba(41, 59, 89, 1)')
+                backgroundColor.push('rgba(41, 59, 89, .9)')
 
                 chartData.labels = chartLabels
                 chartData.datasets[0].data = dataPoints

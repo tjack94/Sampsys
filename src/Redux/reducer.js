@@ -11,7 +11,7 @@ const userInitialState = {
  function userInfo(state=userInitialState, action){
     switch(action.type){
         case "GET_USER":
-        return Object.assign({}, state, {username: action.payload.username, email: action.payload.email, name: action.payload.first_name +' '+action.payload.last_name, userId: action.payload.id})
+        return Object.assign({}, state, {username: action.payload.username, email: action.payload.email, firstName: action.payload.first_name, lastName: action.payload.last_name, userId: action.payload.id})
 
         case "LOG_OUT":
         return Object.assign({}, state, {username: userInitialState.username, email: userInitialState.email, name: userInitialState.name})

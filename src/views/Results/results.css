@@ -3,10 +3,14 @@
     margin: 50px 6%
 }
 .responses-box{
+    width: 20%;
+}
+.responses-box,
+.open-ended-responses{
     border: solid #415989;
     padding: 20px;
     margin: 20px;
-    width: 20%;
+    
     border-radius: 20px
 }
 h2{
@@ -52,4 +56,17 @@ h2{
 .response-button:active {
 	position:relative;
 	top:1px;
+}
+.open-ended-responses{
+    width: 800px;
+}
+.chart-title{
+    font-size: 28px;
+    color: rgb(97, 96, 96);
+}
+.response-list-item{
+    list-style-type: none;
+}
+.response-list-item:nth-child(even){
+    background-color: #415989ce
 }

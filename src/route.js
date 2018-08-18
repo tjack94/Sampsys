@@ -9,6 +9,7 @@ import Survey from './views/Survey/Survey';
 import Wizard from './views/Wizard/Wizard';
 import StartSurvey from './views/Survey/StartSurvey'
 import ThankYou from './views/Survey/ThankYou'
+import AccountInfo from './views/AccountInfo/AccountInfo'
 
 export default function Routes() {
 	return (
@@ -21,6 +22,7 @@ export default function Routes() {
 			<Route path = '/thankyou' component = {ThankYou} />
 			<Route path = '/start-survey/:surveyid' component = {StartSurvey}/>
 			<Route path = '/create-survey' component = {Wizard} />
+			<Route path = '/account-info' component={AccountInfo}/>
 			<Route path = '/' component = {Login} />
 		</Switch>
 	);
