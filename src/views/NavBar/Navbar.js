@@ -57,7 +57,7 @@ class NavBar extends Component {
 				</Link>
 			</div>
 		) : null
-		const imageSource = this.state.displayList? UserMenuOpen : User
+		const imageSource = this.state.displayList?  User : UserMenuOpen 
 		if (
 			this.props.location.pathname === '/' ||
 			this.props.location.pathname === '/register' ||

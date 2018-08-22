@@ -17,12 +17,8 @@ class StartSurvey extends Component{
           axios.get(`/api/start-survey/${this.props.match.params.surveyid}`).then(response => {
               this.setState( { survey: response.data[0] } )
           })
-          axios.get(`/api/get-survey-questions/${this.props.match.params.surveyid}`).then(response => {
-            console.log(response)  
-            const questionIds = []
-
-              response.data.map(question => questionIds.push(question.question_id))
-            this.setState( { questions: questionIds } )
+          axios.get(`/api/get-survey-questions/${this.props.match.params.surveyid}`).then(response => { 
+            this.setState( { questions:response.data } )
           })
       }  
     beginSurvey(){

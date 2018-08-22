@@ -178,7 +178,11 @@ module.exports={
 
         dbInstance.get_survey_info([surveyid])
         .then( survey => {
-            {req.session.surveyid = survey.survey_id}
+            {req.session.surveyid = survey[0].survey_id;
+            req.session.email =survey[0].email;
+            req.session.surveyName =survey[0].survey_name;
+            req.session.firstName= survey[0].first_name
+            }
             res.status(200).send(survey)
         }
         )
@@ -239,6 +243,7 @@ module.exports={
             dbInstance.update_num_of_responses([surveyid])
             .then(()=>{
                 res.sendStatus(200)
+                next()
             })
         }).catch((err) => {
             res.status(500).send({ errorMessage: 'Something went wrong!' });

@@ -1,1 +1,1 @@
-SELECT * from surveys WHERE survey_id = $1
+SELECT s.survey_name, s.survey_id, s.user_id, s.response_count, u.email, u.first_name from surveys s INNER JOIN users u ON s.user_id = u.id WHERE survey_id = $1

@@ -15,6 +15,7 @@ class Dashboard extends Component {
 		axios.get(`/api/get-user-surveys`).then((response) => {
 			this.setState({ surveys: response.data });
 		});
+		
 	}
 	deleteSurvey(survey_id, surveyIndex) {
 		const filteredSurveys = this.state.surveys.filter((survey, index) => index != surveyIndex);
