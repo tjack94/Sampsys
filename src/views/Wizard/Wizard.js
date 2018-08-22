@@ -10,7 +10,7 @@ import './wizard.css';
 class Wizard extends Component {
 	render() {
 		return (
-			<div className="wizard">
+			<div>
 				<Route path="/create-survey/step1" component={StepOne} />
 				<Route path="/create-survey/step2" component={StepTwo} />
 				<Route path="/create-survey/step3" component={StepThree} />

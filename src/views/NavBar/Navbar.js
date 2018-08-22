@@ -47,7 +47,7 @@ class NavBar extends Component {
 	}
 	render() {
 		const menuList= this.state.displayList? (
-			<div className='logout-menu'>
+			<div className='logout-menu scale-out-center'>
 				<u>{this.props.userInfo.firstName + ' ' + this.props.userInfo.lastName} </u>
 				<Link className= 'menu-links' to= '/account-info'>
 				<p className='menu-items'>Account Info</p>

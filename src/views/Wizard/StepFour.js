@@ -19,7 +19,7 @@ class StepFour extends Component{
             }
         }
         return(
-            <div className='wizard-steps-four'>
+            <div className='wizard slide-in-right'>
             {displayComponent()}
         
             </div>

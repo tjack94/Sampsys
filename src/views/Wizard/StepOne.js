@@ -24,7 +24,7 @@ class StepOne extends Component {
 	}
 	render() {
 		return (
-			<div className="wizard-steps">
+			<div className="wizard slide-in-right">
 			<h2>Create New Survey</h2>
 				<h3> Survey Name: </h3>
 				<input

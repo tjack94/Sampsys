@@ -51,6 +51,7 @@ app.delete('/api/delete-survey/:surveyid', controller.deleteSurvey)
 app.delete('/api/delete-question/:questionid', controller.deleteQuestion)
 app.patch('/api/update-user-info', controller.updateUserInfo)
 app.patch('/api/update-password', controller.updatePassword)
+app.post('/api/distribute-survey', mailController.distributeSurvey, (req, res)=> res.sendStatus(200))
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
 
 const port = 3002

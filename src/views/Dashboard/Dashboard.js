@@ -35,7 +35,7 @@ class Dashboard extends Component {
 			) : (
 				this.state.surveys.map((survey, index) => {
 					return (
-						<div className="survey-list" key={index}>
+						<div className="survey-list scale-out-center" key={index}>
 							<Link className="link-to-survey" to={`/results/${survey.survey_id}`}>
 								{survey.survey_name}
 								<span>
@@ -65,7 +65,7 @@ class Dashboard extends Component {
 			);
 
 		return (
-			<div className="dashboard" id="dashboard">
+			<div className="dashboard scale-in-top" id="dashboard">
 				<h1>My Surveys</h1>
 				<div>
 					<Link to="/create-survey/step1">

@@ -46,13 +46,13 @@ class MultipleChoice extends Component {
 			return (
 				<div className="add-response" key={index}>
 					<input
-						className='wizard-input'
+						className='wizard-input scale-out-center'
 						type="text"
 						value={this.state.answers[index]}
 						onChange={(e) => this.handleAnswerChange(e.target.value, index)}
 						placeholder='Type response here'
 					/>
-					<button className="delete-button" onClick={() => this.deleteAnswer(index)}>
+					<button className="delete-button scale-out-center" onClick={() => this.deleteAnswer(index)}>
 						{' '}
 						X
 					</button>

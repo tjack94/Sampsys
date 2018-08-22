@@ -23,7 +23,7 @@ class StepThree extends Component {
 				</Link>
 			);
 		return (
-			<div className="wizard-steps">
+			<div className="wizard slide-in-right">
 				<h2>Select Question Type</h2>
 				<div className="select-box">
 					<select

@@ -97,3 +97,18 @@
 .question-column{
     padding-right: 14px;
 }
+.link-container{
+    margin: 15px
+}
+#mail-form{
+    align-items: baseline;
+}
+.email-form{
+    width: 100%
+}
+#mail-inputs{
+    width: 95%
+}
+#send-button{
+    align-self: center
+}

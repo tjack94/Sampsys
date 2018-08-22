@@ -64,7 +64,7 @@ class StepTwo extends Component {
 				</table>
 			);
 		return (
-			<div className="wizard-steps">
+			<div className="wizard slide-in-right">
 				<h1>{this.props.saveSurveyToState.surveyName}</h1>
 				{showTable}
 

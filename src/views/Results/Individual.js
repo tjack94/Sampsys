@@ -25,12 +25,13 @@ class Individual extends Component{
 }
     
     render(){
-        const surveyName =this.state.responses.length < 1 ? '...loading' : <h1>{this.state.survey[0].survey_name}</h1>
         return(
-            <div className='main-component'>
-            {surveyName}
+            this.state.responses.length < 1 ?  null : (
+            <div className='main-component scale-in-top'>
+            <h1>{this.state.survey.surveyName} </h1>
                 <ResultsMap questions={this.state.responses}/>
             </div>
+            )
         )
     }
 }

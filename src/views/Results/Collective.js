@@ -46,7 +46,7 @@ class Collective extends Component {
 				})
 			);
 		const individualResponses = this.state.showIndividualResponses ? (
-			<div className="responses-box">
+			<div className="responses-box scale-in-top">
 				<button className="delete-button" onClick={() => this.showOrHideResponses()}>
 					Hide
 				</button>
@@ -58,18 +58,17 @@ class Collective extends Component {
 				See Individual Responses
 			</button>
 		);
-		const surveyName =
-			this.state.survey.survey_name ?  <h1>{this.state.survey.survey_name}</h1> : '...loading';
-		return (
-			<div className="main-component" id="collective-results">
-				{surveyName}
+
+		return this.state.survey.survey_name ? (
+			<div className="main-component scale-in-top" id="collective-results">
+				<h1>{this.state.survey.survey_name}</h1>
 				<Link to="/create-survey/link-generator">
 					<button className="login-button">Get Survey Link</button>
 				</Link>
 				{individualResponses}
 				<QuestionsMap questions={this.state.questions} />
 			</div>
-		);
+		) : null;
 	}
 	showOrHideResponses() {
 		if (this.state.showIndividualResponses === true) {
