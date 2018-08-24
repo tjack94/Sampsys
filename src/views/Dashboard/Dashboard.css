@@ -1,7 +1,10 @@
 #dashboard{
     width: 80vw;
-    margin-top: 50px;
-    margin-left: 10vh
+    margin-top: 20px;
+    margin-left: 10vh;
+    background: transparent;
+    border: none;
+    box-shadow: none
     
 }
 .survey-list{
@@ -16,7 +19,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: solid #415989;
+    border: solid #ffffff;
+    background: rgba(255, 255, 255, 0.233);
     box-shadow: rgba(71, 71, 71, 0.507) 0px 4px 4px 4px;
     -webkit-column-break-inside: avoid;
           page-break-inside: avoid;
@@ -45,7 +49,7 @@ a:hover{
 
 .link-to-survey{
 text-decoration: none;
-color: #415989;
+color: white;
 display: flex;
 flex-direction: column;
 }
@@ -77,10 +81,10 @@ flex-direction: column;
 	position:relative;
 	top:1px;
 }
-#survey-controls{
+#delete-survey{
     display: none;
 }
-.survey-list:hover #survey-controls{
+.survey-list:hover #delete-survey{
     display: block;
 }
 #edit-button{
@@ -89,4 +93,50 @@ flex-direction: column;
 }
 .no-surveys{
     grid-column: 2/5
+}
+
+#my-surveys{
+    text-decoration: underline;
+    font-size: 40px;
+    color: white
+}
+.create-new-survey {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:14px;
+	-webkit-border-radius:14px;
+	border-radius:14px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.create-new-survey:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+.create-new-survey:active {
+	position:relative;
+	top:1px;
 }

@@ -112,3 +112,6 @@
 #send-button{
     align-self: center
 }
+.link-provided{
+    color: red;
+}

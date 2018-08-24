@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 class MultipleChoice extends Component {
 	constructor(props) {
@@ -59,6 +58,18 @@ class MultipleChoice extends Component {
 				</div>
 			);
 		});
+		const answerBoxes = this.state.answers.map((answer, index)=>{
+			return(
+				<div key={index} >
+                <input
+                    type="radio"
+                    value={answer}
+                    readOnly
+                />
+                {answer}
+            </div>
+			)
+		})
 		return (
 			<div className='wizard-inputs-container' >
 				<input
@@ -68,6 +79,9 @@ class MultipleChoice extends Component {
 					value={this.state.question}
 					onChange={(e) => this.handleQuestionChange(e.target.value)}
 				/>
+				<div className='multiple-choice'>
+				{answerBoxes}
+				</div>
 					<h3>Add Your Answers Here</h3>
 				
 				<div className='wizard-inputs-container'>{answersList}</div>

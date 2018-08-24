@@ -18,7 +18,8 @@ class MailForm extends Component {
         const email = {
             to: this.state.to,
             subject: this.state.subject,
-            message: this.state.message
+            message: this.state.message,
+            link: this.props.surveyLink
         }
         axios.post('/api/distribute-survey', email).then(()=>{
             this.props.showHideMailForm()
@@ -27,6 +28,7 @@ class MailForm extends Component {
     render(){
         return(
             <div className='wizard-inputs-container' id='mail-form'>
+           <span className='link-provided'>*Link to survey will automatically be added to the email.</span> 
             <b>To:</b>
             
             <input id='mail-inputs' className='sign-up-email' type="text" value={this.state.to} onChange={(e)=> this.handleChange(e, 'to') } />

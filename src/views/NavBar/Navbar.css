@@ -1,11 +1,11 @@
 .navbar{
-    background: rgba(240, 237, 237, 0.904);
+    background: rgba(240, 237, 237, 0.123);
     height: 12vh;
     display: flex;
     align-items: center;
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(71, 71, 71, 0.507) 0px 4px 4px 4px;
+    box-shadow: rgba(71, 71, 71, 0.507) 0px 2px 2px 2px;
 
 }
 .logout-button{
@@ -18,11 +18,11 @@
 }
 .logout-menu{
     margin: 10px;
-    
+    color: silver
 }
 .menu-links{
     text-decoration: none;
-    color: #415989;
+    color: white;
 }
 .menu-items{
     padding: 5px;

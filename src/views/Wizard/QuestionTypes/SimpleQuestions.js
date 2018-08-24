@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import {connect} from 'react-redux'
+import QuestionSwitch from './QuestionSwitch'
 
 class SimpleQuestions extends Component{
     constructor(props){
@@ -26,6 +27,7 @@ class SimpleQuestions extends Component{
         return(
             <div className ='wizard-inputs-container'>
                 <input className='wizard-input' placeholder = "Type Your Question Here" type="text" value={this.state.question} onChange={e => this.handleQuestionChange(e.target.value)} />
+                <QuestionSwitch questionType={this.props.questionInfo.questionType}/>
                 <button className ='next-button' onClick= {()=> this.saveQuestion()}>Done</button>
             </div>
         )

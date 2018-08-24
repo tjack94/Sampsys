@@ -41,6 +41,10 @@ module.exports={
         });
     },
     distributeSurvey: (req, res, next) =>{
+        const output = `
+        <p>${req.body.message}</p>
+        <a href=${req.body.link}>${req.body.link}</a>
+        `
        
         let transporter = nodemailer.createTransport({
             host: 'smtp.office365.com',
@@ -59,11 +63,11 @@ module.exports={
             from: '"Sampsys Surveys" <surveys@sampsys.com>', 
             to: req.body.to, 
             subject: req.body.subject, 
-            text: req.body.message,
+            html: output
         };
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                
+
                 return console.log(error);
             }
             console.log('Message sent: %s', info.messageId);

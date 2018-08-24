@@ -18,14 +18,14 @@ class Dashboard extends Component {
 		
 	}
 	deleteSurvey(survey_id, surveyIndex) {
-		const filteredSurveys = this.state.surveys.filter((survey, index) => index != surveyIndex);
+		const filteredSurveys = this.state.surveys.filter((survey, index) => index !== surveyIndex);
 		axios.delete('/api/delete-survey/' + survey_id).then(() => {
 			this.setState({ surveys: filteredSurveys });
 		});
 	}
-	editSurvey(surveyId) {
+	distributeSurvey(surveyId) {
 		axios.get(`/api/get-surveyid/${surveyId}`).then(() => {
-			this.props.history.push('/create-survey/step2');
+			this.props.history.push('/create-survey/link-generator');
 		});
 	}
 	render() {
@@ -35,30 +35,24 @@ class Dashboard extends Component {
 			) : (
 				this.state.surveys.map((survey, index) => {
 					return (
-						<div className="survey-list scale-out-center" key={index}>
+						<div key={index}>
 							<Link className="link-to-survey" to={`/results/${survey.survey_id}`}>
-								{survey.survey_name}
-								<span>
-									<b># of Responses:</b>
-									{survey.response_count}
-								</span>
+								<div className="survey-list scale-out-center" >
+									
+									{survey.survey_name}
+									<span>
+										<b># of Responses:</b>
+										{survey.response_count}
+									</span>
+									<button
+										className="delete-button"
+										id='delete-survey'
+										onClick={(e) => {e.preventDefault(); this.deleteSurvey(survey.survey_id, index)}}
+									>
+										delete
+									</button>
+								</div>
 							</Link>
-							<div id="survey-controls">
-								<button
-									className="response-button"
-									id="edit-button"
-									onClick={() => this.editSurvey(survey.survey_id)}
-								>
-									Edit
-								</button>
-								<button
-									className="delete-button"
-									onClick={() => this.deleteSurvey(survey.survey_id, index)}
-								>
-									delete
-								</button>
-								
-							</div>
 						</div>
 					);
 				})
@@ -66,12 +60,11 @@ class Dashboard extends Component {
 
 		return (
 			<div className="dashboard scale-in-top" id="dashboard">
-				<h1>My Surveys</h1>
+				<h1 id='my-surveys'>My Surveys</h1>
 				<div>
 					<Link to="/create-survey/step1">
-						<button className="login-button">Create New Survey</button>
+						<button className="create-new-survey">Create New Survey</button>
 					</Link>
-					<hr />
 				</div>
 				<div className="survey-list-container">{surveyList}</div>
 			</div>

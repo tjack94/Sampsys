@@ -37,7 +37,6 @@ class Collective extends Component {
 				<h2>No Responses Yet </h2>
 			) : (
 				this.state.responses.map((response, index) => {
-					const surveyId = this.props.match.surveyid;
 					return (
 						<Link key={index} to={`/results/${this.state.survey.survey_id}/${response.consumer_id}`}>
 							<button className="response-button">Response {index + 1}</button>
@@ -62,9 +61,14 @@ class Collective extends Component {
 		return this.state.survey.survey_name ? (
 			<div className="main-component scale-in-top" id="collective-results">
 				<h1>{this.state.survey.survey_name}</h1>
-				<Link to="/create-survey/link-generator">
-					<button className="login-button">Get Survey Link</button>
-				</Link>
+				<div>
+					<Link to="/create-survey/link-generator">
+						<button className="login-button">Get Survey Link</button>
+					</Link>
+					<Link to="/create-survey/step2">
+						<button className="login-button">Edit Survey</button>
+					</Link>
+				</div>
 				{individualResponses}
 				<QuestionsMap questions={this.state.questions} />
 			</div>

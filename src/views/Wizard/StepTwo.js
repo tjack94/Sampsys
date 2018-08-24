@@ -21,7 +21,7 @@ class StepTwo extends Component {
 		});
 	}
 	deleteQuestion(questionId, questionIndex) {
-		const updatedQuestions = this.state.questions.filter((question, index) => index != questionIndex)
+		const updatedQuestions = this.state.questions.filter((question, index) => index !== questionIndex)
 		axios.delete('/api/delete-question/' + questionId)
 		.then(()=> {this.setState( { questions: updatedQuestions } )})
 	}

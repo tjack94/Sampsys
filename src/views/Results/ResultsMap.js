@@ -20,7 +20,6 @@ export default function ResultsMap(props){
 						<Open currentQuestion={question} />
 					</div>
 				);
-				break;
 
 			case 'multiple_choice':
 				return (
@@ -35,8 +34,6 @@ export default function ResultsMap(props){
 						</div>
 					</div>
 				);
-				break;
-
 			case 'yes_no':
 				return (
 					<div key={index} className="survey-display-question">
@@ -48,8 +45,6 @@ export default function ResultsMap(props){
 						<YesNo currentQuestion={question} />
 					</div>
 				);
-				break;
-
 			case 'true_false':
 				return (
 					<div key={index} className="survey-display-question">
@@ -62,7 +57,6 @@ export default function ResultsMap(props){
 						<TrueFalse currentQuestion={question} />
 					</div>
 				);
-				break;
 
 			case 'rating':
 				return (
@@ -75,7 +69,6 @@ export default function ResultsMap(props){
 						<Rating currentQuestion={question} />
 					</div>
 				);
-				break;
 
 			case 'likert':
 				return (
@@ -88,6 +81,7 @@ export default function ResultsMap(props){
 						<Likert currentQuestion={question} />
 					</div>
 				);
+				default: return null
 		}
 	})
 }

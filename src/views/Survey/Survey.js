@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/actions';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import SampsysLogo from '../Login/SampsysLogo.png';
 import QuestionTypeSwitch from './QuestionTypeSwitch';

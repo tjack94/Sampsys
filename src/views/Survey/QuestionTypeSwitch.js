@@ -5,7 +5,6 @@ import Open from './QuestionTypes/Open';
 import Rating from './QuestionTypes/Rating';
 import TrueFalse from './QuestionTypes/TrueFalse';
 import YesNo from './QuestionTypes/YesNo';
-import SampsysLogo from '../Login/SampsysLogo.png';
 
 export default function QuestionTypeSwitch(props) {
 	return props.questions.map((question, index) => {
@@ -21,7 +20,6 @@ export default function QuestionTypeSwitch(props) {
 						<Open currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
-				break;
 
 			case 'multiple_choice':
 				return (
@@ -36,7 +34,6 @@ export default function QuestionTypeSwitch(props) {
 						</div>
 					</div>
 				);
-				break;
 
 			case 'yes_no':
 				return (
@@ -49,7 +46,6 @@ export default function QuestionTypeSwitch(props) {
 						<YesNo currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
-				break;
 
 			case 'true_false':
 				return (
@@ -63,7 +59,6 @@ export default function QuestionTypeSwitch(props) {
 						<TrueFalse currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
-				break;
 
 			case 'rating':
 				return (
@@ -76,7 +71,6 @@ export default function QuestionTypeSwitch(props) {
 						<Rating currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
-				break;
 
 			case 'likert':
 				return (
@@ -89,6 +83,7 @@ export default function QuestionTypeSwitch(props) {
 						<Likert currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
+				default: return null
 		}
 	});
 }

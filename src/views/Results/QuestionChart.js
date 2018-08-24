@@ -36,7 +36,8 @@ class QuestionChart extends Component{
                 chartData.datasets[0].data = dataPoints
                 chartData.datasets[0].backgroundColor=backgroundColor
                 
-                this.setState( { data: chartData } )
+               return  this.setState( { data: chartData } ) 
+                
             })
         }).then(()=> this.setState({displayCharts: true}))
     }

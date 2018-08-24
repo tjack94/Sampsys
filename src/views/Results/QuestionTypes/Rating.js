@@ -10,7 +10,7 @@ export default function Rating(props) {
 					name={props.currentQuestion.question_id + 'response'}
 					readOnly
 					value={1}
-					checked={props.currentQuestion.response == 1 ? 'checked' : ''}
+					checked={Number(props.currentQuestion.response) === 1 ? 'checked' : ''}
 				/>
 			</div>
 			<div className="scale-container">
@@ -20,7 +20,7 @@ export default function Rating(props) {
 					name={props.currentQuestion.question_id + 'response'}
 					readOnly
 					value={2}
-					checked={props.currentQuestion.response == 2 ? 'checked' : ''}
+					checked={Number(props.currentQuestion.response) === 2 ? 'checked' : ''}
 				/>
 			</div>
 			<div className="scale-container">
@@ -30,7 +30,7 @@ export default function Rating(props) {
 					name={props.currentQuestion.question_id + 'response'}
 					readOnly
 					value={3}
-					checked={props.currentQuestion.response == 3 ? 'checked' : ''}
+					checked={Number(props.currentQuestion.response) === 3 ? 'checked' : ''}
 				/>
 			</div>
 			<div className="scale-container">
@@ -40,7 +40,7 @@ export default function Rating(props) {
 					name={props.currentQuestion.question_id + 'response'}
 					readOnly
 					value={4}
-					checked={props.currentQuestion.response == 4 ? 'checked' : ''}
+					checked={Number(props.currentQuestion.response) === 4 ? 'checked' : ''}
 				/>
 			</div>
 			<div className="scale-container" id="last-container">
@@ -50,7 +50,7 @@ export default function Rating(props) {
 					name={props.currentQuestion.question_id + 'response'}
 					readOnly
 					value={5}
-					checked={props.currentQuestion.response == 5 ? 'checked' : ''}
+					checked={Number(props.currentQuestion.response) === 5 ? 'checked' : ''}
 				/>
 			</div>
 		</div>

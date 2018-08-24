@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {Route} from 'react-router-dom'
 import MultipleChoice from './QuestionTypes/MultipleChoice'
 import SimpleQuestions from './QuestionTypes/SimpleQuestions'
-import Rating from './QuestionTypes/Rating'
 
 class StepFour extends Component{
     render(){
