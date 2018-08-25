@@ -88,9 +88,12 @@ module.exports={
 
         dbInstance.get_survey_id([surveyid])
         .then(id => {
-            {console.log(id)}
+            if(id[0].user_id === req.session.userid){
             {req.session.surveyid= id[0].survey_id}
             res.status(200).send(id)
+            } else{
+                res.sendStatus(403)
+            }
         })
         .catch((err) => {
             res.status(500).send({ errorMessage: 'Something went wrong!' });
@@ -323,6 +326,13 @@ module.exports={
             res.status(500).send({ errorMessage: 'Something went wrong!' });
             console.log(err);
          })
+    },
+    loginCheck: (req, res, next) => {
+        if(req.session.userid){
+            res.sendStatus(200)
+        }else{
+            res.send('no')
+        }
     }
     
 }

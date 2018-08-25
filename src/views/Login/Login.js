@@ -14,6 +14,14 @@ class Login extends Component {
 			password: ''
 		};
 	}
+	componentWillMount(){
+		axios.get('/api/user-login-check').then(response =>{
+			if(response.data === 'no'){
+			}else{
+				this.props.history.push('/dashboard')
+			}
+		})
+	}
 	handleChange(event, name) {
 		const value = event.target.value;
 		this.setState({ [name]: value });
@@ -25,7 +33,6 @@ class Login extends Component {
 		};
 
 		axios.post('/api/login', user).then((results) => {
-			console.log(results);
 			this.props.getUser(results.data[0]);
 			this.props.history.push('./dashboard');
 		});

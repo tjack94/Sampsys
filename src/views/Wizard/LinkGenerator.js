@@ -25,7 +25,7 @@ class LinkGenerator extends Component {
         }
 	}
 	render() {
-		const surveyLink = `http://localhost:3000/start-survey/${this.state.surveyId}`;
+		const surveyLink = `http://www.sampsys.com/start-survey/${this.state.surveyId}`;
 		const showMailForm = this.state.showMailForm ? (
 			<MailForm surveyLink={surveyLink} showHideMailForm = {this.showHideMailForm.bind(this)}/>
 		) : (

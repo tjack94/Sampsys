@@ -25,11 +25,13 @@ class Collective extends Component {
 			axios.get(`/api/get-survey-questions/${this.props.match.params.surveyid}`).then(({ data }) => data)
 		);
 
-		return Promise.all(promises).then(([ responses, survey_id, questions ]) => {
-			const survey = survey_id[0];
+		return Promise.all(promises)
+			.then(([ responses, survey_id, questions ]) => {
+				const survey = survey_id[0];
 
-			this.setState({ responses, survey, questions });
-		});
+				this.setState({ responses, survey, questions });
+			})
+			.catch(() => this.props.history.push('/dashboard'));
 	}
 	render() {
 		const responseList =

@@ -51,6 +51,7 @@ class QuestionChart extends Component{
                 text: this.props.currentQuestion.question,
                 fontSize: 28
             },
+            responsive: true,
             legend:{
                 display: false
             },

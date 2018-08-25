@@ -23,11 +23,7 @@ class Dashboard extends Component {
 			this.setState({ surveys: filteredSurveys });
 		});
 	}
-	distributeSurvey(surveyId) {
-		axios.get(`/api/get-surveyid/${surveyId}`).then(() => {
-			this.props.history.push('/create-survey/link-generator');
-		});
-	}
+	
 	render() {
 		const surveyList =
 			this.state.surveys.length < 1 ? (
@@ -35,8 +31,7 @@ class Dashboard extends Component {
 			) : (
 				this.state.surveys.map((survey, index) => {
 					return (
-						<div key={index}>
-							<Link className="link-to-survey" to={`/results/${survey.survey_id}`}>
+							<Link key={index} className="link-to-survey" to={`/results/${survey.survey_id}`}>
 								<div className="survey-list scale-out-center" >
 									
 									{survey.survey_name}
@@ -53,7 +48,6 @@ class Dashboard extends Component {
 									</button>
 								</div>
 							</Link>
-						</div>
 					);
 				})
 			);

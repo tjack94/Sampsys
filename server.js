@@ -13,6 +13,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(express.static(__dirname + '/../build'));
 
 app.use(session({
     secret: process.env.SECRET,
@@ -47,6 +48,7 @@ app.get('/api/get-individual-question/:questionid', controller.getIndividualQues
 app.post('/api/add-responses/:surveyid', controller.addResponses, mailController.sendMail)
 app.get('/api/get-consumerid', controller.getConumer)
 app.get('/api/get-chart-data/:questionid', controller.getChartData)
+app.get('/api/user-login-check', controller.loginCheck)
 app.delete('/api/delete-survey/:surveyid', controller.deleteSurvey)
 app.delete('/api/delete-question/:questionid', controller.deleteQuestion)
 app.patch('/api/update-user-info', controller.updateUserInfo)

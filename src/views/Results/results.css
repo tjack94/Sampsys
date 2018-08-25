@@ -78,3 +78,7 @@ h2{
 #back-button{
 	align-self: baseline
 }
+.chart-container{
+	width: 400px;
+	height: 800px
+}
