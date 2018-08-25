@@ -5,6 +5,7 @@ const controller = require('./server/controller')
 const session = require('express-session')
 const cors =require('cors')
 const nodemailer= require('nodemailer')
+const path = require('path')
 require('dotenv').config()
 
 const mailController= require('./server/mailController')
@@ -13,7 +14,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(cors())
-app.use(express.static(__dirname + '/../build'));
+app.use(express.static(__dirname + '/build'));
 
 app.use(session({
     secret: process.env.SECRET,
@@ -55,6 +56,9 @@ app.patch('/api/update-user-info', controller.updateUserInfo)
 app.patch('/api/update-password', controller.updatePassword)
 app.post('/api/distribute-survey', mailController.distributeSurvey, (req, res)=> res.sendStatus(200))
 app.post('/api/auth/logout', (req, res, next ) => req.session.destroy(()=>res.sendStatus(200) ))
+app.get('/*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'build/index.html'));
+})
 
 const port = 3002
 
