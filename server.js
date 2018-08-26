@@ -60,7 +60,7 @@ app.get('/*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'build/index.html'));
 })
 
-const port = 80
+const port = process.env.PORT || 3002
 
 app.listen(port, () => {
     console.log(`Server listening at localhost:${port}`);

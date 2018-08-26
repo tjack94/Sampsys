@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
@@ -20,4 +21,4 @@ ReactDOM.render(
 </Router>
 </Provider>
 , document.getElementById('root'));
-
+registerServiceWorker();
