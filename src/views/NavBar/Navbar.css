@@ -1,11 +1,12 @@
 .navbar{
     background: rgba(240, 237, 237, 0.123);
-    height: 12vh;
+    min-height: 12vh;
     display: flex;
     align-items: center;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(71, 71, 71, 0.507) 0px 2px 2px 2px;
+    width: 100%
 
 }
 .logout-button{
@@ -14,7 +15,8 @@
     margin-right: 20px
 }
 .menu-container{
-    display: flex
+    display: flex;
+   
 }
 .logout-menu{
     margin: 10px;
@@ -38,5 +40,10 @@
     .menu-container{
         flex-direction: column;
         align-items: center;
+        margin-right: 10px
+    }
+    .logo{
+        margin-left: 10px;
+        width: 280px;
     }
 }

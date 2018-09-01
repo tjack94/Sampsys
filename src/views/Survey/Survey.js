@@ -46,7 +46,7 @@ class Survey extends Component {
 		const { questions, responses } = this.state;
 		if (questions.length < 1 || responses.length < 1) return <div>loading...</div>;
 		return (
-			<div>
+			<div className='route-container'>
 				<header className="navbar">
 					<img src={SampsysLogo} alt="logo" className="logo" />
 				</header>

@@ -4,9 +4,9 @@ export default function Likert(props) {
 	return (
 		<div className="scale-table">
 			<div className="scale-container">
-				<b>
+				<u>
 					Strongly Disagree
-				</b>
+				</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}
@@ -15,7 +15,7 @@ export default function Likert(props) {
 				/>
 			</div>
 			<div className="scale-container">
-				<b>Disagree</b>
+				<u>Disagree</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}
@@ -24,7 +24,7 @@ export default function Likert(props) {
 				/>
 			</div>
 			<div className="scale-container">
-				<b>Neutral</b>
+				<u>Neutral</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}
@@ -33,7 +33,7 @@ export default function Likert(props) {
 				/>
 			</div>
 			<div className="scale-container">
-				<b>Agree</b>
+				<u>Agree</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}
@@ -42,9 +42,9 @@ export default function Likert(props) {
 				/>
 			</div>
 			<div className="scale-container" id='last-container'>
-				<b>
+				<u>
 					Strongly Agree
-				</b>
+				</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}

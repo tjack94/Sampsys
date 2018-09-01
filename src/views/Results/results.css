@@ -78,7 +78,36 @@ h2{
 #back-button{
 	align-self: baseline
 }
-.chart-container{
-	width: 400px;
-	height: 800px
+@media(max-width:890px){
+canvas{
+	width: 500px !important;
+	height: 250px !important;
 }
+.open-ended-responses{
+	width: 500px;
+}
+.responses-box{
+	margin: 0;
+	padding: 5px;
+	width: auto
+}
+}
+@media(max-width:600px){
+	canvas{
+		width: 300px !important;
+		height: 150px !important;
+	}
+	.open-ended-responses{
+		width: 300px;
+		padding: 5px;
+	}
+	#collective-results{
+		width: 100%;
+	}
+	.response-list,
+	.responses-box{
+		margin: 0;
+		padding: 5px;
+		width: auto
+	}
+	}
