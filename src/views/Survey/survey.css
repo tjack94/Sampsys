@@ -35,3 +35,9 @@
 #last-container{
     border: none;
 }
+.start-survey{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

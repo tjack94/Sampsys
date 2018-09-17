@@ -28,7 +28,7 @@ class StartSurvey extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className='start-survey'>
 				<header className="navbar">
 					<img src={SampsysLogo} alt="logo" className="logo" />
 				</header>
