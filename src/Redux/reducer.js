@@ -17,7 +17,7 @@ const userInitialState = {
         return Object.assign({}, state, {username: userInitialState.username, email: userInitialState.email, name: userInitialState.name})
         default: return state
     }
-};
+}
 function saveSurveyToState(state={ surveyName: null }, action){
     switch(action.type){
 
@@ -40,7 +40,7 @@ function questionInfo(state = {}, action){
 function surveyQuestions(state = {}, action){
     switch(action.type){
         case "GET_QUESTIONS":
-        return Object.assign({}, state, {questions: action.payload, questionIndex: 0})
+        return Object.assign({}, state, { questions: action.payload, questionIndex: 0 })
 
         case "NEXT_QUESTION":
         return Object.assign({}, state, {questionIndex: action.payload})
