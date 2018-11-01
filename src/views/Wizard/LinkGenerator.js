@@ -19,7 +19,7 @@ class LinkGenerator extends Component {
 	}
 	showHideMailForm() {
         if(this.state.showMailForm === false){
-        this.setState({ showMailForm: true })
+        	this.setState({ showMailForm: true })
         } else{
             this.setState( { showMailForm: false } )
         }
