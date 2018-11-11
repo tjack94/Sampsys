@@ -79,7 +79,7 @@ class AccountInfo extends Component {
 					<input
 						className="sign-up-inputs"
 						type="text"
-						value={ this.state.username }
+						value={this.state.username}
 						onChange={(e) => this.handleChange(e, 'username')}
 					/>
 				</div>
