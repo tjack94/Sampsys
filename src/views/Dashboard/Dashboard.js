@@ -15,7 +15,6 @@ class Dashboard extends Component {
 		axios.get(`/api/get-user-surveys`).then((response) => {
 			this.setState({ surveys: response.data });
 		});
-		
 	}
 	deleteSurvey(survey_id, surveyIndex) {
 		const filteredSurveys = this.state.surveys.filter((survey, index) => index !== surveyIndex);
@@ -23,7 +22,7 @@ class Dashboard extends Component {
 			this.setState({ surveys: filteredSurveys });
 		});
 	}
-	
+
 	render() {
 		const surveyList =
 			this.state.surveys.length < 1 ? (
@@ -31,30 +30,32 @@ class Dashboard extends Component {
 			) : (
 				this.state.surveys.map((survey, index) => {
 					return (
-							<Link key={index} className="link-to-survey" to={`/results/${survey.survey_id}`}>
-								<div className="survey-list scale-out-center" >
-									
-									{survey.survey_name}
-									<span>
-										<b># of Responses:</b>
-										{survey.response_count}
-									</span>
-									<button
-										className="delete-button"
-										id='delete-survey'
-										onClick={(e) => {e.preventDefault(); this.deleteSurvey(survey.survey_id, index)}}
-									>
-										delete
-									</button>
-								</div>
-							</Link>
+						<Link key={index} className="link-to-survey" to={`/results/${survey.survey_id}`}>
+							<div className="survey-list scale-out-center">
+								{survey.survey_name}
+								<span>
+									<b># of Responses:</b>
+									{survey.response_count}
+								</span>
+								<button
+									className="delete-button"
+									id="delete-survey"
+									onClick={(e) => {
+										e.preventDefault();
+										this.deleteSurvey(survey.survey_id, index);
+									}}
+								>
+									delete
+								</button>
+							</div>
+						</Link>
 					);
 				})
 			);
 
 		return (
 			<div className="dashboard scale-in-top" id="dashboard">
-				<h1 id='my-surveys'>My Surveys</h1>
+				<h1 id="my-surveys">My Surveys</h1>
 				<div>
 					<Link to="/create-survey/step1">
 						<button className="create-new-survey">Create New Survey</button>

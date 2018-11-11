@@ -2,12 +2,12 @@ import React from 'react';
 import Likert from './QuestionTypes/Likert';
 import MultipleChoice from './QuestionTypes/MultipleChoice';
 import Open from './QuestionTypes/Open';
-import Rating from './QuestionTypes/Rating'
+import Rating from './QuestionTypes/Rating';
 import TrueFalse from './QuestionTypes/TrueFalse';
 import YesNo from './QuestionTypes/YesNo';
 
-export default function ResultsMap(props){
-    return props.questions.map((question, index) => {
+export default function ResultsMap(props) {
+	return props.questions.map((question, index) => {
 		switch (question.question_type) {
 			case 'open':
 				return (
@@ -81,7 +81,8 @@ export default function ResultsMap(props){
 						<Likert currentQuestion={question} />
 					</div>
 				);
-				default: return null
+			default:
+				return null;
 		}
-	})
+	});
 }

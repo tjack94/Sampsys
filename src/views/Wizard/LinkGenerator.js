@@ -29,7 +29,11 @@ class LinkGenerator extends Component {
 		const showMailForm = this.state.showMailForm ? (
 			<MailForm surveyLink={surveyLink} showHideMailForm = {this.showHideMailForm.bind(this)}/>
 		) : (
-			<button className='login-button' onClick={() => this.showHideMailForm()}>Distribute Survey</button>
+			<button 
+			className='login-button' 
+			onClick={() => this.showHideMailForm()}>
+			Distribute Survey
+			</button>
 		);
 		return (
 			<div className="wizard slide-in-right">

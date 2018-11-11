@@ -39,7 +39,7 @@ export default function Rating(props) {
 					onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 				/>
 			</div>
-			<div className="scale-container" id='last-container'>
+			<div className="scale-container" id="last-container">
 				<b>5</b>
 				<input
 					type="radio"

@@ -18,14 +18,18 @@ class Survey extends Component {
 		const promises = [];
 
 		promises.push(
-			axios.get(`/api/get-survey-questions/${this.props.match.params.surveyid}`).then(({ data }) => data)
+      axios.get(`/api/get-survey-questions/${this.props.match.params.surveyid}`)
+      .then(({ data }) => data)
 		);
-		promises.push(axios.get('/api/get-consumerid').then(({ data }) => data));
-		promises.push(axios.get(`/api/start-survey/${this.props.match.params.surveyid}`).then(({ data }) => data[0]));
+    promises.push(axios.get('/api/get-consumerid')
+      .then(({ data }) => data));
+    promises.push(axios.get(`/api/start-survey/${this.props.match.params.surveyid}`)
+      .then(({ data }) => data[0]));
 
 		return Promise.all(promises)
 			.then(([ questions, { consumer_id }, survey ]) => {
-				const responses = questions.map(({ question_id }) => ({ question_id, response: '', consumer_id }));
+        const responses = questions.map(({ question_id }) => 
+        ({ question_id, response: '', consumer_id }));
 
 				this.setState({ responses, questions, survey });
 			})
@@ -46,15 +50,18 @@ class Survey extends Component {
 		const { questions, responses } = this.state;
 		if (questions.length < 1 || responses.length < 1) return <div>loading...</div>;
 		return (
-			<div className='route-container'>
+			<div className="route-container">
 				<header className="navbar">
 					<img src={SampsysLogo} alt="logo" className="logo" />
 				</header>
 				<div className="main-component">
 					<h1>{this.state.survey.survey_name}</h1>
-                              <div>
-					<QuestionTypeSwitch questions={this.state.questions} handleChange={this.handleChange.bind(this)} />
-                              </div>
+					<div>
+						<QuestionTypeSwitch
+							questions={this.state.questions}
+							handleChange={this.handleChange.bind(this)}
+						/>
+					</div>
 					<button className="next-button" onClick={() => this.handleSubmit()}>
 						submit
 					</button>

@@ -4,9 +4,7 @@ export default function Likert(props) {
 	return (
 		<div className="scale-table">
 			<div className="scale-container">
-				<u>
-					Strongly Disagree
-				</u>
+				<u>Strongly Disagree</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}
@@ -41,10 +39,8 @@ export default function Likert(props) {
 					onChange={(e) => props.handleChange(props.currentQuestion.question_id, e.target.value)}
 				/>
 			</div>
-			<div className="scale-container" id='last-container'>
-				<u>
-					Strongly Agree
-				</u>
+			<div className="scale-container" id="last-container">
+				<u>Strongly Agree</u>
 				<input
 					type="radio"
 					name={props.currentQuestion.question_id + 'response'}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/actions';
 import './login.css';
-import SampsysLogo from './SampsysLogo.png'
+import SampsysLogo from './SampsysLogo.png';
 
 class Login extends Component {
 	constructor(props) {
@@ -14,13 +14,13 @@ class Login extends Component {
 			password: ''
 		};
 	}
-	componentWillMount(){
-		axios.get('/api/user-login-check').then(response =>{
-			if(response.data === 'no'){
-			}else{
-				this.props.history.push('/dashboard')
+	componentWillMount() {
+		axios.get('/api/user-login-check').then((response) => {
+			if (response.data === 'no') {
+			} else {
+				this.props.history.push('/dashboard');
 			}
-		})
+		});
 	}
 	handleChange(event, name) {
 		const value = event.target.value;
@@ -41,7 +41,7 @@ class Login extends Component {
 		return (
 			<div className="login">
 				<div className="login-container">
-					<img src={SampsysLogo} alt="Logo" className='logo'/>
+					<img src={SampsysLogo} alt="Logo" className="logo" />
 					<input
 						className="login-field"
 						type="text"

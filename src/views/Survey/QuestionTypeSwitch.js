@@ -13,7 +13,7 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
@@ -25,7 +25,7 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
@@ -39,7 +39,7 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
@@ -51,7 +51,7 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
@@ -64,7 +64,7 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
@@ -76,14 +76,15 @@ export default function QuestionTypeSwitch(props) {
 				return (
 					<div key={index} className="survey-display-question">
 						<div>
-							<b className='question-title'>
+							<b className="question-title">
 								{index + 1}. {question.question}
 							</b>
 						</div>
 						<Likert currentQuestion={question} handleChange={props.handleChange} />
 					</div>
 				);
-				default: return null
+			default:
+				return null;
 		}
 	});
 }

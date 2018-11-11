@@ -31,8 +31,8 @@ class OpenQuestionChart extends Component {
 				: 'loading...';
 		return (
 			<div className="open-ended-responses">
-				<b className="chart-title">{this.props.currentQuestion.question}</b>
-				<ul className="response-list">{responseList}</ul>
+				<b className="chart-title">{ this.props.currentQuestion.question }</b>
+				<ul className="response-list">{ responseList }</ul>
 			</div>
 		);
 	}

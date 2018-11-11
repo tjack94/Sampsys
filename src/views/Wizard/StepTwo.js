@@ -21,9 +21,10 @@ class StepTwo extends Component {
 		});
 	}
 	deleteQuestion(questionId, questionIndex) {
-		const updatedQuestions = this.state.questions.filter((question, index) => index !== questionIndex)
-		axios.delete('/api/delete-question/' + questionId)
-		.then(()=> {this.setState( { questions: updatedQuestions } )})
+		const updatedQuestions = this.state.questions.filter((question, index) => index !== questionIndex);
+		axios.delete('/api/delete-question/' + questionId).then(() => {
+			this.setState({ questions: updatedQuestions });
+		});
 	}
 	render() {
 		const questionsList =
@@ -54,12 +55,12 @@ class StepTwo extends Component {
 				questionsList
 			) : (
 				<table border="0">
-				<tbody>
-					<tr>
-						<td className="table-heading">Question</td>
-						<td className="table-heading">Type</td>
-					</tr>
-					{questionsList}
+					<tbody>
+						<tr>
+							<td className="table-heading">Question</td>
+							<td className="table-heading">Type</td>
+						</tr>
+						{questionsList}
 					</tbody>
 				</table>
 			);

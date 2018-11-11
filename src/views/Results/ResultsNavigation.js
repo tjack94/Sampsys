@@ -25,8 +25,8 @@ export default function ResultsNavigation(props) {
 		);
 	return (
 		<div className="nav-button-container">
-			{previousButton}
-			{nextButton}
+			{ previousButton }
+			{ nextButton }
 		</div>
 	);
 }

@@ -46,7 +46,7 @@ class QuestionChart extends Component {
 		const chart =
 			this.state.displayCharts === true ? (
 				<Bar
-					data={this.state.data}
+					data={ this.state.data }
 					options={{
 						title: {
 							display: true,

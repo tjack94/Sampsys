@@ -17,7 +17,9 @@ class StepThree extends Component {
 		const nextButton =
 			this.state.questionType === '' ? null : (
 				<Link to={`/create-survey/step4/${this.state.questionType}`}>
-					<button className="next-button" onClick={() => this.props.setQuestionType(this.state.questionType)}>
+					<button 
+					  className="next-button" 
+					  onClick={() => this.props.setQuestionType(this.state.questionType)}>
 						Next
 					</button>
 				</Link>
